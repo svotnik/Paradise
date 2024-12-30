@@ -22081,7 +22081,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/clipboard,
-/obj/item/mining_voucher,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -87999,6 +87998,7 @@
 /obj/structure/cable/orange{
 	icon_state = "0-8"
 	},
+/obj/item/mining_voucher,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "brown"

@@ -64449,7 +64449,6 @@
 "jKY" = (
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
-/obj/item/mining_voucher,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -65921,6 +65920,7 @@
 	pixel_y = 3
 	},
 /obj/item/clipboard,
+/obj/item/mining_voucher,
 /turf/simulated/floor/plasteel{
 	icon_state = "brown"
 	},
