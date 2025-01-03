@@ -633,6 +633,10 @@
 /// From /mob/remove_language() (language_name)
 #define COMSIG_MOB_LANGUAGE_REMOVE	"mob_language_remove"
 
+/// Source: /mob/living/say (message, verb, ignore_speech_problems, ignore_atmospherics, ignore_languages, datum/multilingual_say_piece)
+#define COMSIG_LIVING_EARLY_SAY "living_early_say"
+	#define COMPONENT_PREVENT_SPEAKING	(1<<0)
+
 /// From base of /client/Move(): (new_loc, direction)
 #define COMSIG_MOB_CLIENT_PRE_MOVE "mob_client_pre_move"
 	/// Should always match COMPONENT_MOVABLE_BLOCK_PRE_MOVE as these are interchangeable and used to block movement.
