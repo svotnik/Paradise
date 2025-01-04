@@ -22,3 +22,13 @@
 ///from base of [/obj/proc/update_integrity]: (old_value, new_value)
 #define COMSIG_OBJ_INTEGRITY_CHANGED "obj_integrity_changed"
 
+
+///sent to targets during the process_hit proc of projectiles
+#define COMSIG_FIRE_CASING "fire_casing"
+
+///called in /obj/item/grenade/proc/prime(): (user)
+#define COMSIG_GRENADE_DETONATE "grenade_prime"
+
+///from [/obj/structure/closet/supplypod/proc/preOpen]:
+#define COMSIG_SUPPLYPOD_LANDED "supplypodgoboom"
+

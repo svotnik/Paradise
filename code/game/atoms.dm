@@ -332,6 +332,12 @@
 /atom/proc/is_open_container()
 	return is_refillable() && is_drainable()
 
+/atom/proc/setOpened()
+	return
+
+/atom/proc/setClosed()
+	return
+
 /// Is this atom injectable into other atoms
 /atom/proc/is_injectable(mob/user, allowmobs = TRUE)
 	return reagents && (container_type & (INJECTABLE|REFILLABLE))

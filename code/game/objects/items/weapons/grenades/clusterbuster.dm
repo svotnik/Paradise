@@ -12,6 +12,7 @@
 	var/payload_power = CLUSTERBUSTER_PAYLOAD_POWER
 
 /obj/item/grenade/clusterbuster/prime()
+	. = ..()
 	update_mob()
 	var/numspawned = rand(4,8)
 	var/again = 0
