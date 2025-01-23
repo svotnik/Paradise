@@ -1,4 +1,5 @@
 GLOBAL_LIST_EMPTY(asays)
+GLOBAL_LIST_EMPTY(msays)
 GLOBAL_LIST_EMPTY(devsays)
 
 /**
@@ -17,8 +18,19 @@ GLOBAL_LIST_EMPTY(devsays)
 	src.message = message
 	src.time = time
 
+/client/proc/view_msays()
+	set name = "View msays"
+	set desc = "View Msays from the current round."
+	set category = "Admin.Admin"
+
+	if(!check_rights(R_MENTOR | R_ADMIN))
+		return
+
+	display_says(GLOB.msays, "msay")
+
+
 /client/proc/view_devsays()
-	set name = "Devsays"
+	set name = "View devsays"
 	set desc = "View Devsays from the current round."
 	set category = "Admin.Admin"
 
@@ -28,15 +40,15 @@ GLOBAL_LIST_EMPTY(devsays)
 	display_says(GLOB.devsays, "devsay")
 
 /client/proc/view_asays()
-	set name = "Asays"
+	set name = "View asays"
 	set desc = "View Asays from the current round."
 	set category = "Admin.Admin"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(R_ADMIN | R_MOD))
 		return
 
 	display_says(GLOB.asays, "asay")
-	
+
 /client/proc/display_says(list/say_list, title)
 	var/list/output = list({"
 	<style>
@@ -53,7 +65,7 @@ GLOBAL_LIST_EMPTY(devsays)
 			table-layout: fixed;
 		}
 	</style>
-	<a href='byond://?src=[holder.UID()];asays=1'>Refresh</a>
+	<a href='byond://?src=[holder.UID()];[title]s=1'>Refresh</a>
 	<table style='width: 100%; border-collapse: collapse; table-layout: auto; margin-top: 3px;'>
 	"})
 
@@ -83,6 +95,6 @@ GLOBAL_LIST_EMPTY(devsays)
 		</tbody>
 	</table>"}
 
-	var/datum/browser/popup = new(usr, "asays", "<div align='center'>Current Round [capitalize(title)]</div>", 1200, 825)
+	var/datum/browser/popup = new(usr, title, "<div align='center'>Current Round [capitalize(title)]s</div>", 1200, 825)
 	popup.set_content(output.Join())
 	popup.open(0)

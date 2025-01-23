@@ -1271,6 +1271,13 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 /atom/proc/speech_bubble(bubble_state = "", bubble_loc = src, list/bubble_recipients = list())
 	return
 
+/atom/proc/atom_emote(emote)
+	if(!emote)
+		return
+	visible_message(span_game_emote("<span class='name'>[src]</span> [emote]"), span_game_emote("Вы слышите, как что-то [emote]."))
+
+	runechat_emote(src, emote)
+
 /atom/vv_edit_var(var_name, var_value)
 	var/old_light_flags = light_flags
 	switch(var_name)

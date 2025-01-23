@@ -1583,11 +1583,17 @@
 		usr.client.update_mob_sprite(M)
 
 	else if(href_list["asays"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_ADMIN | R_MOD))
 			return
 
 		usr.client.view_asays()
 
+	else if(href_list["msays"])
+		if(!check_rights(R_ADMIN | R_MENTOR))
+			return
+
+		usr.client.view_msays()
+		
 	else if(href_list["devsays"])
 		if(!check_rights(R_ADMIN | R_VIEWRUNTIMES))
 			return
@@ -3537,6 +3543,7 @@
 				if(!SSshuttle.toggleShuttle("gamma_shuttle","gamma_home","gamma_away", TRUE))
 					message_admins("[key_name_admin(usr)] moved the gamma armory")
 					log_admin("[key_name(usr)] moved the gamma armory")
+					GLOB.gamma_ship_location = !GLOB.gamma_ship_location
 
 		if(usr)
 			log_admin("[key_name(usr)] used secret [href_list["secretsfun"]]")
@@ -3890,7 +3897,13 @@
 	if(!target) return
 	// The way admin jump links handle their src is weirdly inconsistent...
 
-	. = ADMIN_FLW(target,"FLW")
+	if(isclient(target))
+		var/client/C = target
+		if(C.mob)
+			target = C.mob
+
+	. = ADMIN_FLW(target, "FLW")
+
 	if(isAI(target)) // AI core/eye follow links
 		var/mob/living/silicon/ai/A = target
 		if(A.client && A.eyeobj) // No point following clientless AI eyes
