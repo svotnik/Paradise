@@ -140,7 +140,6 @@
 		if(hud_used)
 			hud_used.guardianhealthdisplay.maptext = "<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#efeeef'>[resulthealth]%</font></div>"
 
-
 /mob/living/simple_animal/hostile/guardian/adjustHealth(
 	amount = 0,
 	updating_health = TRUE,
@@ -164,6 +163,17 @@
 		to_chat(summoner, span_danger("Your body can't take the strain of sustaining [src] in this condition, it begins to fall apart!"))
 		summoner.adjustCloneLoss(amount / 2)
 
+/mob/living/simple_animal/hostile/guardian/adjustStaminaLoss(
+	amount = 0,
+	updating_health = TRUE,
+	blocked = 0,
+	forced = FALSE,
+	used_weapon = null,
+)
+	return FALSE
+
+/mob/living/simple_animal/hostile/guardian/setStaminaLoss(amount, updating_health = TRUE)
+	return FALSE
 
 /mob/living/simple_animal/hostile/guardian/ex_act(severity, target)
 	switch(severity)
