@@ -1231,3 +1231,53 @@ Traitors and the like can also be revived with the previous role mostly intact.
 					if(!source)
 						return
 			REMOVE_TRAIT(D, chosen_trait, source)
+
+/client/proc/cmd_change_command_name()
+	set category = "Admin.Event"
+	set name = "Change Command Name"
+
+	if(!check_rights(R_ADMIN | R_EVENT))
+		return
+
+	var/input = tgui_input_text(usr, "Введите имя для Центрального Командования.", "Что?", "")
+	if(!input)
+		return
+	change_command_name(input)
+	log_and_message_admins("has changed Central Command's name to [input]")
+
+
+/client/proc/polymorph_all()
+	set category = "Event"
+	set name = "Polymorph All"
+	set desc = "Applies the effects of the bolt of change to every single mob."
+
+	if(!holder)
+		return
+
+	var/confirm = tgui_alert(src, "Пожалуйста, подтвердите, что вы хотите полиморфировать всех?", "Подтверждение", list("Да", "Нет"))
+	if(confirm != "Да")
+		return
+
+	var/keep_name = tgui_alert(src, "Вы хотите, чтобы существа сохранили свои имена?", "Сохранить имена?", list("Да", "Нет"))
+
+	var/list/mobs = shuffle(GLOB.alive_player_list.Copy()) // might change while iterating
+	
+	log_and_message_admins("polymorphed ALL living mobs.")
+
+	for(var/mob/living/M in mobs)
+		CHECK_TICK
+
+		if(!M || !M.name || !M.real_name)
+			continue
+
+		M.audible_message(span_italics("...ваббаджек...ваббаджек..."))
+		playsound(M.loc, 'sound/magic/Staff_Change.ogg', 50, 1, -1)
+		var/name = M.name
+		var/real_name = M.real_name
+
+		var/mob/living/new_mob = wabbajack(M)
+		if(keep_name == "Да" && new_mob)
+			new_mob.name = name
+			new_mob.real_name = real_name
+
+
