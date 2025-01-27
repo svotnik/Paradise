@@ -193,6 +193,9 @@
 	event_meta = EM
 	severity = event_meta.severity
 	src.forced = forced
+  
+	if(forced)
+		admin_setup()
 
 	// Validate severity
 	if(severity != EVENT_LEVEL_NONE \
@@ -258,3 +261,9 @@
   */
 /datum/event/proc/fake_announce()
 	return FALSE
+
+/**
+  * Override this to allow admins to configure the force event.
+  */
+/datum/event/proc/admin_setup()
+	return
