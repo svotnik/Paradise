@@ -3357,17 +3357,18 @@
 
 				SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Chinese Cartoons")
 				log_and_message_admins("made everything kawaii.")
-				for(var/mob/living/carbon/human/human in GLOB.mob_list)
+				for(var/mob/living/carbon/human/human as anything in GLOB.human_list)
 					SEND_SOUND(human, 'sound/AI/animes.ogg')
 					if(!human.dna.species.nojumpsuit && !isvox(human) && !isplasmaman(human) \
 						&& !isshadowling(human) && !isvoxarmalis(human) && !is_space_or_openspace(get_turf(human)))
 						var/obj/item/clothing/head/kitty/hat = new
 						var/seifuku = pick(typesof(/obj/item/clothing/under/schoolgirl))
 						var/obj/item/clothing/under/schoolgirl/uniform = new seifuku
-						human.drop_item_ground(human.w_uniform, TRUE)
+						human.drop_item_ground(human.w_uniform, TRUE, FALSE, TRUE)
 						human.equip_to_slot_or_del(uniform, uniform.slot_flags)
-						human.drop_item_ground(human.head, TRUE)
+						human.drop_item_ground(human.head, TRUE, FALSE, TRUE)
 						human.equip_to_slot_or_del(hat, hat.slot_flags)
+
 						ADD_TRAIT(uniform, TRAIT_NODROP, INNATE_TRAIT)
 						ADD_TRAIT(hat, TRAIT_NODROP, INNATE_TRAIT)
 					var/list/honorifics = list(MALE = list("кун"), FEMALE = list("чан","тан"), NEUTER = list("сан")) //John Robust -> Robust-kun
