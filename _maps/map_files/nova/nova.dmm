@@ -4639,16 +4639,6 @@
 	tag = "icon-whitebluecorner"
 	},
 /area/medical/medbay)
-"aJe" = (
-/obj/machinery/kitchen_machine/microwave{
-	pixel_x = -1;
-	pixel_y = 7
-	},
-/obj/structure/table/reinforced,
-/turf/simulated/floor/plasteel{
-	icon_state = "cafeteria"
-	},
-/area/crew_quarters/kitchen)
 "aJg" = (
 /obj/structure/chair/sofa/pew/right{
 	dir = 4
@@ -22154,6 +22144,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
+"djp" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/fancy/light,
+/area/crew_quarters/serviceyard)
 "djy" = (
 /obj/machinery/door_control{
 	id = "mechanicgate";
@@ -40845,12 +40841,6 @@
 /obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/quartermaster/office)
-"fTg" = (
-/obj/machinery/cooker/deepfryer,
-/turf/simulated/floor/plasteel{
-	icon_state = "cafeteria"
-	},
-/area/crew_quarters/kitchen)
 "fTi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -49652,9 +49642,6 @@
 	},
 /area/quartermaster/office)
 "hic" = (
-/obj/structure/chair{
-	dir = 8
-	},
 /turf/simulated/floor/wood/fancy/light,
 /area/crew_quarters/serviceyard)
 "him" = (
@@ -59336,7 +59323,7 @@
 	c_tag = "Kitchen West";
 	dir = 5
 	},
-/obj/machinery/kitchen_machine/oven,
+/obj/machinery/cooker/deepfryer,
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -192903,7 +192890,7 @@ iya
 iya
 qJv
 bUX
-aJe
+bUX
 uyq
 leV
 fDY
@@ -193157,7 +193144,7 @@ tYT
 mvb
 pZY
 uWa
-bUX
+uWa
 vci
 fDY
 fDY
@@ -193671,7 +193658,7 @@ tYT
 lzK
 pZY
 kWE
-fTg
+xCx
 wcX
 fDY
 fZp
@@ -197805,7 +197792,7 @@ thX
 aoY
 aAZ
 umU
-eDF
+djp
 gEF
 gEF
 gEF
@@ -198062,7 +198049,7 @@ bLN
 vYP
 czK
 jQz
-vzu
+hic
 gEF
 hvj
 obo
@@ -198319,7 +198306,7 @@ qIz
 lPi
 hDy
 jQz
-lPi
+hic
 gEF
 pRW
 pRW
