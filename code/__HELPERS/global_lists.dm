@@ -60,6 +60,10 @@
 		S.race_key = ++rkey //Used in mob icon caching.
 		GLOB.all_species[S.name] = S
 
+	for(var/datum/body_zone/zone as anything in subtypesof(/datum/body_zone))
+		zone = new zone()
+		GLOB.body_zones[zone.type] = zone
+
 	init_subtypes(/datum/crafting_recipe, GLOB.crafting_recipes)
 
 	//Pipe list building
