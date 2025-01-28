@@ -3587,6 +3587,11 @@
 					log_admin("[key_name(usr)] moved the gamma armory")
 					GLOB.gamma_ship_location = !GLOB.gamma_ship_location
 
+			if("spawn_cargo_crate")
+				if(!you_realy_want_do_this())
+					return
+				create_cargo_crate()
+
 		if(usr)
 			log_admin("[key_name(usr)] used secret [href_list["secretsfun"]]")
 			if(ok)
