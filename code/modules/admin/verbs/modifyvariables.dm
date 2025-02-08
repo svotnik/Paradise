@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(VVpixelmovement, list("step_x", "step_y", "step_size", "bound_h
 
 
 		if(VV_NUM)
-			.["value"] = tgui_input_number(src, "Введите число:", "Число", current_value)
+			.["value"] = tgui_input_number(src, "Введите число:", "Число", current_value, max_value = INFINITY)
 			if(.["value"] == null)
 				.["class"] = null
 				return
